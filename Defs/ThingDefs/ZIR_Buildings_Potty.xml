@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef>
+	<defName>ZIR_PottyChair</defName>
+    <label>potty chair</label>
+    <description>A small wooden potty chair with a chamber-pot insert. Used by caretakers to help regressed adults relearn bathroom independence. Not glamorous — but neither is regression.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <graphicData>
+      <texPath>Things/Building/ZIR_PottyChair</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(0,5,0.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-2</Beauty>
+      <Mass>3</Mass>
+    </statBases>
+    <selectable>true</selectable>
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(1,1)</size>
+    <building>
+      <isEdifice>false</isEdifice>
+	  <rotatable>true</rotatable>
+    </building>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <fillPercent>0.2</fillPercent>
+    <costList>
+      <WoodLog>50</WoodLog>
+    </costList>
+    <designationCategory>Furniture</designationCategory>
+    <uiOrder>2390</uiOrder>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+    <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+
+</Defs>

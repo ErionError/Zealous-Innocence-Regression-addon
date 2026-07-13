@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       ZIR_PottySuccess — 20 stages: 4 traits × 5 regression
+       Formula: traitIdx * 5 + regressionIdx
+       Fired on self-directed toilet success (YoungChild/PreTeen) or
+       caretaker session success (all stages).
+       stackLimit=1 + stackedEffectMultiplier=1 → refreshes on repeat use.
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_PottySuccess</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stackLimit>1</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <durationDays>0.17</durationDays>
+    <stages>
+      <!-- Default -->
+      <li><label>used the toilet</label><description>Managed the toilet myself. Small thing. Still something.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>made it</label><description>Made it to the toilet. Still means something.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>made it!</label><description>Made it to da potty in time! I did it!</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>went potty!</label><description>Went potty! Did it! Yay!</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>settled</label><description>Settled. Warm. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>still capable</label><description>Used the toilet. Still capable. That matters more than it should.</description><baseMoodEffect>5</baseMoodEffect></li>
+      <li><label>still in control</label><description>Managed the toilet on my own. Still here. Still capable.</description><baseMoodEffect>4</baseMoodEffect></li>
+      <li><label>did it myself!</label><description>Went potty all by myself! I CAN do fings!</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>did it!</label><description>Went potty all by myself! I can! I can!</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>settled</label><description>Warm. Good. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>used the toilet</label><description>Used the toilet. Sure. Fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>made it</label><description>Made it to the toilet. That just happens.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>went potty</label><description>Went to da potty. Fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>went potty</label><description>Went potty. Hmm.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>settled</label><description>Settled. *murmuring*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>used the toilet</label><description>Used the toilet. It worked. Still prefer my diaper.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>made it I suppose</label><description>Made it to the toilet. Still miss my diaper.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>went potty</label><description>Went to da potty. Miss my diapew though.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>went potty</label><description>Went potty. Want diapew tho.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>settled</label><description>Settled. Want diapew. *murmuring*</description><baseMoodEffect>1</baseMoodEffect></li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       ZIR_ForcedPottyTraining — 20 stages: 4 traits × 5 regression
+       Formula: traitIdx * 5 + regressionIdx
+       Fired on ALL regressed patients when caretaker completes a session.
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_ForcedPottyTraining</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stackLimit>1</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <durationDays>1</durationDays>
+    <stages>
+      <!-- Default -->
+      <li><label>treated like a child</label><description>Marched to the toilet and supervised. Deeply humiliating.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>made to go</label><description>Made to go to the toilet by a caretaker. Hate being treated like this.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>made to go potty</label><description>Dey made me go potty. Don't wike dat.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>no potty</label><description>Made to go potty. No no no.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>settled after</label><description>All done. *settled*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>led to the toilet</label><description>Taken to the toilet by hand. Like a toddler. No words for this.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>forced and furious</label><description>Made to sit on the potty by a caretaker. Cannot believe this.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>made to go potty</label><description>Dey MADE me go potty. Didn't want to. NOT FAIR.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>no no potty</label><description>Don't WANNA go potty. NOT FAIR. No no no.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>settled after</label><description>All done. *settled*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>dragged to the toilet</label><description>Dragged to the toilet by someone who thinks I need supervising. Resent every step.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>not my choice</label><description>Made to sit on the potty when I didn't choose to. Not okay.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>not fair</label><description>Dey walked me dere and made me go and I said NO and dey didn't listen. NOT FAIR.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>no no no potty</label><description>Don't WANNA potty. Said no no no and dey didn't listen. NOT FAIR.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>settled after</label><description>All done. *settled*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>wanted my diaper</label><description>Taken to the toilet when I wanted my diaper. Not what I wanted at all.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>wanted my diaper</label><description>Made to use the toilet. My diaper was right there.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>wanted my diapew</label><description>Had to go potty. Wanted my diapew. No fair.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>want diapew not potty</label><description>Potty bad. Diapew good. Want diapew.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>settled after</label><description>All done now. Want diapew. *settled*</description><baseMoodEffect>0</baseMoodEffect></li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

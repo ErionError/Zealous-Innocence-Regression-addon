@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <LetterDef>
+    <defName>ZIR_RegressionRecovery</defName>
+    <label>regression recovery</label>
+    <letterClass>ZealousInnocenceRegression.ChoiceLetter_RegressionRecovery</letterClass>
+    <color>(100, 220, 150)</color>
+    <arriveSound>LetterArrive_Good</arriveSound>
+  </LetterDef>
+</Defs>

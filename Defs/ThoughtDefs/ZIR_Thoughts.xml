@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — SITUATIONAL (stage-based, always active while regressed)
+       16 stages: 4 trait profiles × 4 regression stages (unchanged)
+       Profile offset: Default=0  BB=4  PR=8  DL=12
+       Stage  offset:  PreTeen=0  YoungChild=1  Toddler=2  Infant=3
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_SelfRegression</defName>
+    <workerClass>ZealousInnocenceRegression.ThoughtWorker_ZIR_SelfRegression</workerClass>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <!-- Default -->
+      <li><label>something feels off</label><description>I feel... different. Something has changed, but I can't quite place it.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>I can't concentrate</label><description>My thoughts keep slipping away. Skills that used to come naturally now feel distant and strange.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>who am I?</label><description>I can barely remember who I was. The person I knew is becoming a stranger to me.</description><baseMoodEffect>-10</baseMoodEffect></li>
+      <li><label>...</label><description>...</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>this isn't like me</label><description>Something's wrong. I'm not acting like myself and it's starting to scare me.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>I'm losing control</label><description>My independence, my capabilities — they're slipping. I refuse to accept this.</description><baseMoodEffect>-9</baseMoodEffect></li>
+      <li><label>I can't be this person</label><description>No. Not me. I won't be reduced to this. But I can't seem to stop it.</description><baseMoodEffect>-14</baseMoodEffect></li>
+      <li><label>...</label><description>No... not... me...</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>something feels familiar</label><description>There's something unsettling about how natural this is starting to feel.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>I can't concentrate</label><description>Things I used to know are becoming hazy. It feels strange. Not entirely wrong.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>is this wrong?</label><description>Part of me knows this isn't right. But another part doesn't seem to mind at all.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>...</label><description>...</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>something feels off</label><description>I feel... different. Changed. I'm not sure how to feel about that yet.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>I can't think clearly</label><description>My thoughts are clouding. There's something frightening about how comfortable that is.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>the me I know is fading</label><description>I can feel myself changing. The horror of it and the ease of it exist side by side.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>...</label><description>...</description><baseMoodEffect>2</baseMoodEffect></li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — NURSERY ROOM (situational, inside qualifying room)
+       20 stages: 4 trait profiles × 5 regression stages
+       Formula: traitIdx * 5 + regressionIdx
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_InNurseryRoom</defName>
+    <workerClass>ZealousInnocenceRegression.ThoughtWorker_ZIR_NurseryRoom</workerClass>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <!-- Default -->
+      <li><label>this room</label><description>Something about this space isn't built for someone my age. Hard to ignore.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>this room</label><description>Being in here makes me feel small. Every detail is a reminder.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>dis room</label><description>Dis room fits me somehow. Don't wanna fink about dat too much.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>dis room</label><description>Dis room feels nice. Somefing right about it.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>safe</label><description>Safe. *settled*</description><baseMoodEffect>4</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>this room</label><description>Everything in here says child. I do not belong in this room.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>this room</label><description>I know what this room is. Refuse to feel at home in it.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>dis room</label><description>I 'member being mad about rooms like dis. Da reason is hard to hold now.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>dis room</label><description>Dis room is comfy. Can't find da part dat hates dat anymore.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>safe</label><description>Safe warm. *settled*</description><baseMoodEffect>2</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>this room</label><description>Built for someone much smaller. Something compelling about that.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>this room</label><description>People would find it strange that I like being in here. Good.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>dis room</label><description>Dis room feels right. Don't need a reason.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>dis room</label><description>Warm. Safe. Right.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>safe</label><description>Safe. *settled*</description><baseMoodEffect>4</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>this room</label><description>Built for softness and safety. Understand its appeal more than I admit.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>this room</label><description>Something in this room calls to a part of me I've stopped arguing with.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>dis room</label><description>Soft and safe in here. Dis is where I belong wight now.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>my room</label><description>Dis is my room. Feels exactly wight.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>safe</label><description>Safe warm. Mine. *settled*</description><baseMoodEffect>5</baseMoodEffect></li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — MEMORY: Stage crossing DOWN (unchanged — 4 trait stages)
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_StageCrossedDown</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>2</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <li><label>losing ground</label><description>I slipped further. Whatever I'm becoming, it's harder to come back from now.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>not me. not me.</label><description>No. This isn't happening. This cannot be who I'm becoming. But the evidence says otherwise.</description><baseMoodEffect>-12</baseMoodEffect></li>
+      <li><label>slipping deeper</label><description>I've crossed another threshold. Part of me noticed. Part of me didn't seem to mind.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>I'm changing</label><description>Another piece of who I was has shifted. I'm becoming something different. Something smaller.</description><baseMoodEffect>-6</baseMoodEffect></li>
+    </stages>
+    <showBubble>true</showBubble>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — MEMORY: Recovery moment (unchanged — 3 stages)
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_RecoveryMoment</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <li><label>a moment of clarity</label><description>For a moment, I remembered myself. I could think clearly. I felt like me again.</description><baseMoodEffect>6</baseMoodEffect></li>
+      <li><label>I'm still me</label><description>Yes. THIS is who I am. This moment of clarity is proof I'm still in here. I have to hold onto it.</description><baseMoodEffect>10</baseMoodEffect></li>
+      <li><label>coming back to myself</label><description>I surfaced, briefly. The person I was looked back at me. Then the moment passed.</description><baseMoodEffect>4</baseMoodEffect></li>
+    </stages>
+    <showBubble>true</showBubble>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       OBSERVER — PROXIMITY (memory, refreshed daily by MapComponent)
+       20 stages: observer trait × target regression
+       Formula: observerTraitIdx * 5 + targetRegressionIdx
+         targetRegressionIdx: Adult=0  PreTeen=1  YoungChild=2  Toddler=3  Infant=4
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_ObserverRegression</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <!-- Default observer -->
+      <li><label>something seems off</label><description>Something has shifted in one of us. Hard to name. Hard to ignore.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>one of us is off</label><description>Something has clearly changed in one of our colonists. Worrying.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>dey seem different</label><description>Somefing is different about one of dem. Dey're not da same.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>dey different</label><description>One of dem is weally different now.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>different</label><description>Somefing different. *doesn't fully register*</description><baseMoodEffect>-12</baseMoodEffect></li>
+      <!-- Big_Boy observer -->
+      <li><label>something is wrong</label><description>Something is wrong with one of our own. Watching it happen. It sits badly.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>watching someone slip</label><description>One of our people is changing and it isn't good. It worries me.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>dey're slipping</label><description>One of da people here is weally changing. It scares me.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>dey fell far</label><description>Dey're weally different now. Dat's scawy.</description><baseMoodEffect>-12</baseMoodEffect></li>
+      <li><label>very different</label><description>Weally different. Scawy. *unsettled*</description><baseMoodEffect>-15</baseMoodEffect></li>
+      <!-- Potty_Rebel observer -->
+      <li><label>one of us is changing</label><description>One of us is shifting into something else. I watch. Don't intervene.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>they've changed</label><description>A colonist is changing. I watch. Not sure how to feel.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>dey're different</label><description>One of dem is weally different now. I watch dem.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>dey changed</label><description>Dey changed a lot. Hmm.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>different</label><description>Dey different. *doesn't fully register*</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <!-- Diaper_Lover observer -->
+      <li><label>noticing the change</label><description>Something has changed in one of us. Watching closely.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>they're regressing</label><description>A colonist is slipping. I notice them differently now.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>dey're changing</label><description>One of dem is weally different now. I notice dem a lot.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>dey need help</label><description>Dey need lots of help now.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>different</label><description>Dey different. *doesn't fully register*</description><baseMoodEffect>-4</baseMoodEffect></li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       OBSERVER — LOVED ONE (social memory, fired at stage crossing)
+       20 stages: observer trait × target regression
+       Formula: observerTraitIdx * 5 + targetRegressionIdx
+       {0} = regressed pawn's name
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_LovedOneRegressed</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>5</durationDays>
+    <stackLimit>2</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <!-- Default observer -->
+      <li><label>something feels wrong</label><description>{0} hasn't been right lately. Can see it even if I can't explain it.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>losing them</label><description>{0} is different. Something in them is changing and it scares me.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>slipping away</label><description>{0} isn't themselves anymore. I don't know how to reach them.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>almost gone</label><description>{0} is barely recognisable. I keep looking for them and not finding them.</description><baseMoodEffect>-12</baseMoodEffect></li>
+      <li><label>gone</label><description>{0} is gone. What remains needs care, not the relationship we had.</description><baseMoodEffect>-15</baseMoodEffect></li>
+      <!-- Big_Boy observer -->
+      <li><label>watching them slip</label><description>{0} is losing ground. See it every time I look at them.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>they're slipping</label><description>{0} is different every day. I watch it happen and hate it.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>losing them</label><description>{0} is slipping into something I don't recognise. Each day a little worse.</description><baseMoodEffect>-11</baseMoodEffect></li>
+      <li><label>barely there</label><description>{0} is almost gone. I didn't stop it and I don't know if I could have.</description><baseMoodEffect>-14</baseMoodEffect></li>
+      <li><label>gone</label><description>{0} is gone. And if it can happen to them, it can happen to anyone.</description><baseMoodEffect>-18</baseMoodEffect></li>
+      <!-- Potty_Rebel observer -->
+      <li><label>they're changing</label><description>{0} isn't who they were. Watching the change.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>they've changed</label><description>{0} has changed. Keeping distance.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>far gone</label><description>{0} has changed beyond recognition. Something in me is unsettled by it.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>very far gone</label><description>{0} is almost unrecognisable. I don't know what to do with that.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>gone</label><description>{0} is gone completely. Whatever is left is not the person I knew.</description><baseMoodEffect>-9</baseMoodEffect></li>
+      <!-- Diaper_Lover observer -->
+      <li><label>they're shifting</label><description>{0} is changing. Sit with that feeling every day.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>they're different</label><description>{0} has changed. Notice it differently than expected.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>deeply dependent</label><description>{0} needs more care each day. The feeling that brings up in me is complicated.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>needs everything</label><description>{0} is deeply regressed. They need everything now. I don't know what I feel watching that.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>gone</label><description>{0} is gone. What remains is entirely dependent. The feeling that leaves me with doesn't have a clean name.</description><baseMoodEffect>-6</baseMoodEffect></li>
+    </stages>
+    <showBubble>true</showBubble>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Legacy hediff — kept only so saves that already have it don't throw missing-def errors.
+       ApplyRegressionHediff removes it on first sync and applies ZIR_Stage_* instead. -->
+  <HediffDef>
+    <defName>ZIR_Regression</defName>
+    <label>regression</label>
+    <description>The mind and body have partially reverted to an earlier state of development. Motor control, cognition, and social capability are all diminished.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <makesSickThought>false</makesSickThought>
+    <tendable>false</tendable>
+    <stages>
+
+      <!-- ── Pre-Teen (severity 0.0–0.25) ─────────────────────────── -->
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>pre-teen</label>
+        <statFactors>
+          <MoveSpeed>0.95</MoveSpeed>
+          <WorkSpeedGlobal>0.90</WorkSpeedGlobal>
+          <SocialImpact>0.85</SocialImpact>
+          <TradePriceImprovement>0.90</TradePriceImprovement>
+        </statFactors>
+        <!-- No work blocks yet — still mostly functional -->
+      </li>
+
+      <!-- ── Young Child (severity 0.26–0.50) ──────────────────────── -->
+      <li>
+        <minSeverity>0.26</minSeverity>
+        <label>young child</label>
+        <statFactors>
+          <MoveSpeed>0.90</MoveSpeed>
+          <WorkSpeedGlobal>0.75</WorkSpeedGlobal>
+          <SocialImpact>0.70</SocialImpact>
+          <TradePriceImprovement>0.75</TradePriceImprovement>
+        </statFactors>
+        <!-- Research and art require higher-order cognition -->
+        <disabledWorkTags>Intellectual, Artistic</disabledWorkTags>
+      </li>
+
+      <!-- ── Toddler (severity 0.51–0.75) ───────────────────────────── -->
+      <li>
+        <minSeverity>0.51</minSeverity>
+        <label>toddler</label>
+        <statFactors>
+          <MoveSpeed>0.75</MoveSpeed>
+          <WorkSpeedGlobal>0.50</WorkSpeedGlobal>
+          <SocialImpact>0.40</SocialImpact>
+        </statFactors>
+        <!-- Can no longer manage prisoners, treat wounds, handle animals, or craft -->
+        <disabledWorkTags>Intellectual, Artistic, Social, Caring, Animals, Crafting</disabledWorkTags>
+      </li>
+
+      <!-- ── Infant (severity 0.76–1.0) ────────────────────────────── -->
+      <li>
+        <minSeverity>0.76</minSeverity>
+        <label>infant</label>
+        <statFactors>
+          <MoveSpeed>0.60</MoveSpeed>
+          <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+          <SocialImpact>0.10</SocialImpact>
+        </statFactors>
+        <!-- Almost fully non-functional — only hauling, cleaning, firefighting remain -->
+        <disabledWorkTags>Intellectual, Artistic, Social, Caring, Animals, Crafting, Cooking</disabledWorkTags>
+      </li>
+
+    </stages>
+  </HediffDef>
+
+</Defs>

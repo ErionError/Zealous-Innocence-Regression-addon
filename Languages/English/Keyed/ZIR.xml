@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- ─── Stage labels ──────────────────────────────────────────── -->
+  <ZIR_Stage_Adult>Adult</ZIR_Stage_Adult>
+  <ZIR_Stage_PreTeen>Pre-Teen</ZIR_Stage_PreTeen>
+  <ZIR_Stage_YoungChild>Young Child</ZIR_Stage_YoungChild>
+  <ZIR_Stage_Toddler>Toddler</ZIR_Stage_Toddler>
+  <ZIR_Stage_Infant>Infant</ZIR_Stage_Infant>
+
+  <!-- ─── Recovery gizmo ───────────────────────────────────────── -->
+  <ZIR_Recovery>Recovery</ZIR_Recovery>
+  <ZIR_PtsPerDay>pts/day</ZIR_PtsPerDay>
+  <ZIR_EventDriven>Requires active training — no passive gain at this stage.</ZIR_EventDriven>
+  <ZIR_CurrentStage>Current stage</ZIR_CurrentStage>
+
+  <!-- ─── Recovery moment letter ───────────────────────────────── -->
+  <ZIR_RecoveryMoment_Label>{0} — Recovery Moment</ZIR_RecoveryMoment_Label>
+  <ZIR_RecoveryMoment_Text>{0} has worked hard enough to reclaim a piece of themselves. They are beginning to recover from their {1} regression.</ZIR_RecoveryMoment_Text>
+  <ZIR_RecoveryDialog_Open>Choose rewards...</ZIR_RecoveryDialog_Open>
+
+  <!-- ─── Recovery moment dialog ───────────────────────────────── -->
+  <!-- Potty training schedule button -->
+  <ZIR_PottySchedule>Schedule Training</ZIR_PottySchedule>
+  <ZIR_PottySchedule_Tip>Assign {0} to run a potty training session.</ZIR_PottySchedule_Tip>
+  <ZIR_PottySchedule_Cooldown>Last session was recent. Ready in {0}.</ZIR_PottySchedule_Cooldown>
+  <ZIR_PottySchedule_NoCaretaker>No colonist with Childcare work is available.</ZIR_PottySchedule_NoCaretaker>
+  <ZIR_PottySchedule_NoFixture>No potty chair or toilet in range.</ZIR_PottySchedule_NoFixture>
+  <ZIR_PottyScheduled>{0} will take {1} for a potty training session.</ZIR_PottyScheduled>
+
+  <!-- Potty training gizmo -->
+  <ZIR_PottyTraining>Potty Training</ZIR_PottyTraining>
+  <ZIR_PottyTooltip_NeedsCaretaker>Requires a caretaker with Childcare work enabled. Using the toilet improves bladder control and aids recovery.</ZIR_PottyTooltip_NeedsCaretaker>
+  <ZIR_PottyTooltip_SelfTrain>Going to the toilet independently builds control and feeds the learning chain. Accidents set it back.</ZIR_PottyTooltip_SelfTrain>
+
+  <ZIR_RecoveryDialog_Title>{0}'s Recovery Moment</ZIR_RecoveryDialog_Title>
+  <ZIR_RecoveryDialog_Desc>{0} has earned a recovery moment. Choose a skill passion to reclaim, and optionally a new trait.</ZIR_RecoveryDialog_Desc>
+  <ZIR_RecoveryDialog_PassionHeader>Reclaim a passion:</ZIR_RecoveryDialog_PassionHeader>
+  <ZIR_RecoveryDialog_TraitHeader>Gain a new trait (optional):</ZIR_RecoveryDialog_TraitHeader>
+  <ZIR_RecoveryDialog_NoTrait>No new trait</ZIR_RecoveryDialog_NoTrait>
+  <ZIR_RecoveryDialog_PickPassion>Choose a passion first.</ZIR_RecoveryDialog_PickPassion>
+
+</LanguageData>

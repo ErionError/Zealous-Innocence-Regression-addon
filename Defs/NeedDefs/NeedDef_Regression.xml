@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <NeedDef>
+    <defName>ZI_Regression</defName>
+    <needClass>ZealousInnocenceRegression.Need_Regression</needClass>
+    <label>regression</label>
+    <description>A measure of psychological and bodily identity. At full, the pawn retains their adult self. As it falls, they slip through stages of regression — Pre-Teen, Young Child, Toddler, Infant — losing autonomy and sense of self. It only moves when something happens to them.</description>
+    <listPriority>500</listPriority>
+    <baseLevel>1.0</baseLevel>
+    <minIntelligence>Humanlike</minIntelligence>
+    <showOnNeedList>true</showOnNeedList>
+    <major>true</major>
+  </NeedDef>
+
+</Defs>

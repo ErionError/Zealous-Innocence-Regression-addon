@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Apparel_Diaper — append 100 regression-aware stages (45–144).
+       Formula: 45 + fillState * 20 + traitIdx * 5 + regressionIdx
+         fillState:    NoDiaper=0  Clean=1  Used=2  Spent=3  Trashed=4
+         traitIdx:     Default=0   BigBoy=1  PottyRebel=2  DiaperLover=3
+         regressionIdx: Adult=0   PreTeen=1  YoungChild=2  Toddler=3  Infant=4
+       ZI's original stages 0–44 are left intact for non-regressed pawns.
+       C# postfix on ThoughtWorker_Diaper_Dressed redirects regressed adults.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThoughtDef[defName="Apparel_Diaper"]/stages</xpath>
+    <value>
+
+      <!-- ── Fill 0: No Diaper (needs one, not wearing) ── -->
+      <!-- Default -->
+      <li><label>no protection</label><description>Need something on. Going to have an accident.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>unprotected</label><description>Really should have protection on right now. Not good.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>no diapew</label><description>Don't have my diapew. Need one.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no diapew</label><description>Need diapew. Where diapew.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>bare</label><description>Nuffin on. *fussing*</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>don't need one</label><description>Don't need protection. Perfectly in control.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>still fine</label><description>No protection on. Still managing. Don't need it.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>don't need it</label><description>Don't need a diapew. Can do it myself.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>don't need one</label><description>Don't need diapew. I'm big.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>bare</label><description>Nuffin on. *restless*</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>going without</label><description>No protection on. That's fine by me.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>free</label><description>No protection. Not a problem.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>free</label><description>Not wearin anyfing. Dat's fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>no diapew</label><description>No diapew. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>bare</label><description>Nuffin on. *murmuring*</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>missing it</label><description>Want my diaper on. Something feels wrong without it.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>want my diaper</label><description>No protection on. Feels really wrong.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>want diapew</label><description>Don't have my diapew. Want it back.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>want diapew</label><description>Want diapew. Now.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>bare</label><description>Nuffin on. *whimpering*</description><baseMoodEffect>-2</baseMoodEffect></li>
+
+      <!-- ── Fill 1: Clean Diaper ── -->
+      <!-- Default -->
+      <li><label>wearing it</label><description>Have to wear a diaper. That doesn't mean I have to like it.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>protected</label><description>Wearing protection. It's on. It's there.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>diapew on</label><description>My diapew is on. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>padded</label><description>Nice and padded.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>clean</label><description>Soft soft. *settled*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>in a diaper</label><description>Padded like a toddler. Every second in this is an insult to everything I was.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>padded up</label><description>Put in a diaper like a little kid. I hate all of this.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>don't want dis</label><description>I keep tellin dem I don't want it but dey put it on anyway and I just let dem. How come I let dem.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>don't want diapew</label><description>Don't want diapew. No.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>clean</label><description>Soft. *peaceful*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>padded and fine</label><description>Wearing a diaper. Let anyone try to make something of that.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>My diaper is on. Don't care what anyone thinks.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>Got my diapew on. Dat's fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>padded</label><description>Diapew on. Good.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>clean</label><description>Soft. *cooing*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>padded up</label><description>Clean diaper on. Soft and comfortable. Right where it belongs.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>Clean diaper on. Really like this feeling.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>nice diapew</label><description>Got my diapew on. It's weally nice.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>soft diapew</label><description>Soft and cosy. Wuv my diapew.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>clean</label><description>Soft warm. *cooing*</description><baseMoodEffect>2</baseMoodEffect></li>
+
+      <!-- ── Fill 2: Used / Wet ── -->
+      <!-- Default -->
+      <li><label>had an accident</label><description>Had an accident in my diaper. Still wearing it. That's just how this goes now.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>had an accident</label><description>Had an accident in my diaper. Again. I hate that this keeps happening.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>wet diapew</label><description>Had an accidant in my diapew. It just happened.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>wet</label><description>Wet diapew. It happened.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>warm</label><description>Warm warm. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>accident</label><description>Had an accident in my diaper. Standing here like nothing happened.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>used it</label><description>Had an accident in my diaper. The part that hates this is still very loud.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>wet my diapew</label><description>Had an accidant in my diapew. Da bit dat hates dis is still dere.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>wet diapew</label><description>Went in my diapew. No wike.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>warm</label><description>Warm. *peaceful*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>used it</label><description>Had an accident in my diaper. That's what it's there for.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>used my diaper</label><description>Had an accident in my diaper. That's the whole point.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>went in my diapew</label><description>Went in my diapew. Dat's what it's for.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>wet</label><description>Wet diapew. Dat's fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>warm</label><description>Warm. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>warm</label><description>Had an accident in my diaper. Would choose this over a toilet every time.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>warm and happy</label><description>Had an accident in my diaper. Really like this feeling.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>warm diapew</label><description>Went in my diapew. Weally nice.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>warm</label><description>Warm diapew. Wuv.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>warm</label><description>Warm warm. Wuv. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+
+      <!-- ── Fill 3: Spent / Full ── -->
+      <!-- Default -->
+      <li><label>need a change</label><description>Diaper is full. Need a change. Not comfortable.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>really need a change</label><description>My diaper is full. Cannot ignore this.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>full diapew</label><description>My diapew is full. Need someone to change me.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>heavy</label><description>Diapew heavy. Want change.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>full</label><description>Heavy. No wike. *squirming*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>full diaper</label><description>Diaper is full. This is what I've been reduced to.</description><baseMoodEffect>-10</baseMoodEffect></li>
+      <li><label>full diaper</label><description>My diaper is full. The person I was this morning would not believe this.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>full diapew</label><description>My diapew is full. Da bit dat hates dis is still dere.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>heavy diapew</label><description>Diapew full and heavy. No wike.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>full</label><description>Heavy. No wike. *squirming*</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>needs changing</label><description>Diaper is full. Not a crisis. Just needs changing.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>needs changing</label><description>Diaper full. Someone will sort it eventually.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>full diapew</label><description>Diapew is full. Someone will change me.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>full</label><description>Full diapew. Someone come.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>full</label><description>Heavy. *squirming*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>getting heavy</label><description>Diaper getting full. Can sit with it a little longer.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>full diaper</label><description>Diaper is heavy now. Probably time to change.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>heavy diapew</label><description>Diapew getting weally heavy. Change soon.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>heavy</label><description>Diapew very heavy. Hmm.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>full</label><description>Too heavy. *squirming*</description><baseMoodEffect>-1</baseMoodEffect></li>
+
+      <!-- ── Fill 4: Trashed / Flooded ── -->
+      <!-- Default -->
+      <li><label>needs changing now</label><description>Diaper is at its limit. Need a change right now.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>way too full</label><description>My diaper can't take any more. This is awful.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>flooding</label><description>My diapew is way way too full. Need a change RIGHT NOW.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew too full. Too much.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>too heavy</label><description>Too heavy. BAD. *crying*</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>overflowing</label><description>Diaper overflowing. I have no words for how low I have fallen.</description><baseMoodEffect>-14</baseMoodEffect></li>
+      <li><label>overflowing</label><description>My diaper is past its limit. Cannot believe any of this.</description><baseMoodEffect>-11</baseMoodEffect></li>
+      <li><label>too full</label><description>My diapew is way too full. I weally weally hate dis.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew too full. No wike no wike.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>too heavy</label><description>Too heavy. BAD. *crying*</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>change time</label><description>Past its limit. Change time.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>change time</label><description>Way too full. Change time.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew way too full. Weally need a change.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew too full. Change now.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>too heavy</label><description>Too heavy. *crying*</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>past comfortable</label><description>Past comfortable now. Starting to be a problem. Need a change.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>too full</label><description>Way too full now. Need a change.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew way too full now. Change pwease.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>too full</label><description>Diapew too much. Too heavy.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>too heavy</label><description>Too heavy. No wike. *crying*</description><baseMoodEffect>-2</baseMoodEffect></li>
+
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Stink — append 80 regression-aware stages (12–91).
+       Formula: 12 + severityIdx * 20 + traitIdx * 5 + regressionIdx
+         severityIdx: Faint=0  Noticeable=1  Strong=2  Overpowering=3
+       ZI's original stages 0–11 left intact for non-regressed observers.
+       C# postfix on ThoughtWorker_Stink redirects regressed adult observers.
+       Infant observers (rIdx=4) return Inactive — no thought fires.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThoughtDef[defName="Stink"]/stages</xpath>
+    <value>
+
+      <!-- ── Severity 0: Faint ── -->
+      <!-- Default -->
+      <li><label>something in the air</label><description>Something off nearby. Someone might need attending to.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>faint smell</label><description>There's a smell. Faint but there.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>somefing smells</label><description>Somefing smells a little funny.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell somefing.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>I smell that</label><description>Someone nearby needs a change. Unmistakable.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>something's off</label><description>Something smells off. Someone needs to sort themselves out.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>someone smelly</label><description>Somefing smells funny near me.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell somefing. No wike.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>faint whiff</label><description>Someone nearby needs a change. Fine by me.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>barely there</label><description>There's a smell. Doesn't bother me.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>faint smell</label><description>Smell somefing a bit. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell somefing. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>familiar</label><description>Someone nearby needs a change. Unremarkable.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>barely there</label><description>Faint smell. Part of the environment.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>faint smell</label><description>Smell somefing a tiny bit. Dat's fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell somefing. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+      <!-- ── Severity 1: Noticeable ── -->
+      <!-- Default -->
+      <li><label>noticeable</label><description>Someone nearby needs a change. Getting hard to ignore.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>noticeable</label><description>The smell is clear now. Someone needs to deal with that.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>someone smelly</label><description>Someone near me is stinky stinky. Dey need a change.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>stinky</label><description>Someone stinky nearby.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>someone needs a change</label><description>Someone nearby needs a change. Not acceptable.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>clear and bad</label><description>The smell is clear. Someone needs to sort themselves out right now.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>smells bad</label><description>Someone near me smells weally bad. No wike.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>stinky stinky</label><description>Stinky stinky! No wike!</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>noticeable</label><description>Someone nearby needs a change. Doesn't offend me.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>it's there</label><description>Noticeable smell. Comes with the territory.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smelly nearby</label><description>Someone smells nearby. Dat's fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell nearby. Hmm.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>someone needs a change</label><description>Someone nearby needs a change. No big deal.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>noticeable</label><description>The smell is there. Doesn't bother me.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smelly</label><description>Someone smells a bit. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smell</label><description>Smell nearby. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+      <!-- ── Severity 2: Strong ── -->
+      <!-- Default -->
+      <li><label>strong smell</label><description>The smell is bad. Someone is really overdue for a change.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>really bad</label><description>This is hard to ignore. Someone needs sorting out.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>weally stinky</label><description>Someone near me smells weally weally bad.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>very stinky stinky</label><description>Weally stinky stinky! Yuck!</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>bad</label><description>The smell is getting to me. Someone needs to deal with this.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>awful</label><description>This is genuinely unpleasant. Someone needs to change right now.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>awful smell</label><description>Dis smells weally awful. Weally don't wike it.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>so stinky stinky</label><description>SO stinky stinky! Weally no wike!</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>getting strong</label><description>Getting a bit much even for me.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>strong</label><description>The smell is significant. Still fine.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>pretty stinky</label><description>Dat's pretty smelly. Whatever.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>stinky</label><description>Weally stinky. Hmm.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>strong smell</label><description>Getting strong. Even I notice it at this point.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>pretty strong</label><description>The smell is strong. Still pretty normal.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>smelly</label><description>Weally smelly nearby. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>stinky</label><description>Stinky nearby. Hmm.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+      <!-- ── Severity 3: Overpowering ── -->
+      <!-- Default -->
+      <li><label>overpowering</label><description>The smell is overwhelming. Need air right now.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>unbearable</label><description>This is too much. Someone needs to fix this right now.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>SO stinky</label><description>Someone smells SO stinky stinky! Change dem RIGHT NOW.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>change dem!</label><description>SO stinky! Change dem NOW!</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>cannot stand this</label><description>The smell is overwhelming. Completely unacceptable.</description><baseMoodEffect>-10</baseMoodEffect></li>
+      <li><label>overwhelming</label><description>The smell is awful. This should not be allowed to happen.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>terrible smell</label><description>Dis smells SO bad. Weally weally hate it.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>so so stinky</label><description>SO stinky! Weally no wike no wike!</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>too much</label><description>Even I have limits. Someone needs changing.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>okay that's a lot</label><description>The smell is overpowering. Limits exist.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>way too stinky</label><description>Dat's way way too smelly. Even I fink so.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>very stinky</label><description>Weally weally stinky. Too much.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>overpowering</label><description>That is genuinely overwhelming. Someone needs a change.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>very strong</label><description>That is a lot. Someone really needs changing.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>very stinky</label><description>Dat's weally weally smelly. Someone need a change.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>very stinky</label><description>Weally stinky. Too much.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>no reaction</label><description>*doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SoiledSelf (DBH) — replace all stages with 20 regression-aware stages.
+       Formula: traitIdx * 5 + regressionIdx
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="SoiledSelf"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>soiled myself</label><description>Lost control with nothing on. Cannot face anyone right now.</description><baseMoodEffect>-8</baseMoodEffect></li>
+        <li><label>had an accident</label><description>Had an accident with nothing on. Oh no. Oh no.</description><baseMoodEffect>-5</baseMoodEffect></li>
+        <li><label>made a mess</label><description>Made a big mess. Didn't mean to. Sowwy.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>uh oh</label><description>Uh oh. Made a big nono. Sowwy sowwy.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>messy</label><description>Messy. Warm. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>complete failure</label><description>Lost control with nothing on. Cannot describe how low this feels.</description><baseMoodEffect>-12</baseMoodEffect></li>
+        <li><label>this is awful</label><description>Had an accident with nothing on. I am not this person.</description><baseMoodEffect>-8</baseMoodEffect></li>
+        <li><label>made a mess</label><description>Made a big mess. Da bit of me dat cares is still dere. Sowwy.</description><baseMoodEffect>-5</baseMoodEffect></li>
+        <li><label>uh oh</label><description>Uh oh. Big nono. Somefing feels wrong. Sowwy sowwy.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>messy</label><description>Messy. Warm. *wriggles*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>had an accident</label><description>Had an accident. It happened. Moving on.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>had an accident</label><description>Had an accident. Not great. Not spiralling.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>made a mess</label><description>Made a mess. Dat happens.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>uh oh</label><description>Uh oh. Made a mess. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>messy</label><description>Messy. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>should've had protection</label><description>Had an accident with nothing on. A diaper would have handled that.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>needed my diaper</label><description>Had an accident. A diaper would have been so much better.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>needed my diapew</label><description>Had an accidant. Wish I had my diapew on.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>want diapew</label><description>Made a mess. Want my diapew.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>messy</label><description>Messy. *babbling*</description><baseMoodEffect>1</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PantsPeed (ZI) — replace all stages with 20 regression-aware stages.
+       Formula: traitIdx * 5 + regressionIdx
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="PantsPeed"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>wet my pants</label><description>Wet my pants. Just stood there and let it happen.</description><baseMoodEffect>-6</baseMoodEffect></li>
+        <li><label>had an accident</label><description>Had an accident in my pants. People were right there.</description><baseMoodEffect>-4</baseMoodEffect></li>
+        <li><label>wet my pants</label><description>Had an accidant in my pants. Should've asked to go sooner.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet pants</label><description>Wet pants. Uh oh.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. Warm. *settled*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>wet myself</label><description>Wet my pants like a small child. The shame has a physical weight.</description><baseMoodEffect>-9</baseMoodEffect></li>
+        <li><label>cannot believe this</label><description>Wet my pants. In front of people. I am not a child. This is not happening.</description><baseMoodEffect>-6</baseMoodEffect></li>
+        <li><label>wet my pants</label><description>Had a pants accidant. Da part dat knows dis is wrong is still dere.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>wet pants</label><description>Wet pants. Dat's wrong. Sowwy.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. Warm. *settled*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>wet pants</label><description>Wet my pants. Not a crisis.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>accident</label><description>Had an accident in my pants. It happens.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet pants</label><description>Pants got wet. Dat's fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet pants</label><description>Wet pants. Hmm.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>should've worn one</label><description>Wet my pants. A diaper would have handled that perfectly.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>needed my diaper</label><description>Wet my pants. A diaper would have caught that.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>needed my diapew</label><description>Wet my pants. Want my diapew.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet pants</label><description>Wet. Want my diapew.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *babbling*</description><baseMoodEffect>1</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       DiaperPeed (ZI) — replace all stages with 20 regression-aware stages.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="DiaperPeed"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>had an accident</label><description>Had an accident in my diaper. Still wearing it. That's just how this goes now.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>had an accident</label><description>Had an accident in my diaper. Again. I hate that this keeps happening.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>accidant in diapew</label><description>Had an accidant in my diapew. It just happened.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet diapew</label><description>Went in my diapew. Warm warm.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>warm</label><description>Warm warm. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>accident</label><description>Had an accident in my diaper. Moving on. Not thinking about this.</description><baseMoodEffect>-6</baseMoodEffect></li>
+        <li><label>used it</label><description>Had an accident in my diaper. The part that hates this is still very loud.</description><baseMoodEffect>-4</baseMoodEffect></li>
+        <li><label>accidant in diapew</label><description>Had an accidant in my diapew. Da bit dat hates dis is still dere.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet diapew</label><description>Went in my diapew. No wike.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>warm</label><description>Warm. *peaceful*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>used it</label><description>Had an accident in my diaper. That's what it's there for.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>used my diaper</label><description>Had an accident in my diaper. That's the whole point.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>went in my diapew</label><description>Went in my diapew. Dat's what it's for.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet diapew. Dat's fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>warm</label><description>Warm. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>warm</label><description>Had an accident in my diaper. Would choose this over a toilet every time.</description><baseMoodEffect>2</baseMoodEffect></li>
+        <li><label>warm and happy</label><description>Had an accident in my diaper. Really love this feeling.</description><baseMoodEffect>2</baseMoodEffect></li>
+        <li><label>warm diapew</label><description>Went in my diapew. Weally nice.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>warm</label><description>Warm diapew. Wuv.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>warm</label><description>Warm warm. Wuv. *wriggles*</description><baseMoodEffect>1</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       DiaperPeedBed (ZI) — replace all stages with 20 regression-aware stages.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="DiaperPeedBed"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>wet in my sleep</label><description>Had an accident in my diaper in my sleep. When did this start happening.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet in my sleep</label><description>Had an accident in my diaper in my sleep. Not again.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet overnight</label><description>Had an accidant in my diapew while sweeping. Dat keeps happenin.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet this morning</label><description>Wet diapew dis mornin.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Warm dis mornin. *settled*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>accident in my sleep</label><description>Had an accident in my diaper in my sleep. Again. This cannot keep happening.</description><baseMoodEffect>-4</baseMoodEffect></li>
+        <li><label>wet in my sleep</label><description>Had an accident in my sleep. Why does my body keep doing this.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>wet overnight</label><description>Had an accidant in my diapew sweeping again. Weally don't wike dat.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet this morning</label><description>Wet diapew dis mornin. Somefing feels wrong.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Warm dis mornin. *peaceful*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>woke up wet</label><description>Had an accident overnight. Good thing my diaper was on.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>woke up wet</label><description>Had an accident in my sleep. Diaper caught it.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>wet overnight</label><description>Had an accidant in my diapew sweeping. Dat's fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>wet morning</label><description>Wet overnight. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Warm dis mornin. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>warm morning</label><description>Woke up with a warm wet diaper. Wonderful way to start a day.</description><baseMoodEffect>3</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Woke up warm and wet. Really love waking up like this.</description><baseMoodEffect>2</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Woke up in a warm diapew. Wuv it.</description><baseMoodEffect>2</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Warm and cosy dis mornin. Nice.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>warm morning</label><description>Warm dis mornin. Wuv. *cooing*</description><baseMoodEffect>1</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       WetBed (ZI) — replace all stages with 20 regression-aware stages.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="WetBed"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>wet the bed</label><description>Woke up wet. Cold sheets. Not the first time.</description><baseMoodEffect>-8</baseMoodEffect></li>
+        <li><label>wet the bed</label><description>Sheets are wet. Again. Not again.</description><baseMoodEffect>-5</baseMoodEffect></li>
+        <li><label>wet da bed</label><description>Made da sheets all wet. Dat keeps happenin.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>wet sheets</label><description>Sheets all wet. Cold cold.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet wet. Cold. *fussing*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>wet the bed</label><description>Soaked the bed in my sleep. I am not a child. This is not who I am.</description><baseMoodEffect>-11</baseMoodEffect></li>
+        <li><label>wet the bed</label><description>Wet the bed again. What is happening to me. This cannot keep happening.</description><baseMoodEffect>-7</baseMoodEffect></li>
+        <li><label>wet da bed</label><description>Wet da bed AGAIN. Don't need diapews tho. I don't. Don't say dat.</description><baseMoodEffect>-4</baseMoodEffect></li>
+        <li><label>wet sheets</label><description>Sheets all wet. No wike. Sowwy sowwy.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet wet. Cold now. *fussing*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>wet the bed</label><description>Woke up wet again. Should probably just sleep padded.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>wet the bed</label><description>Wet the bed. Could be worse.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet da bed</label><description>Wet da bed overnight. Dat just happens.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet sheets</label><description>Wet sheets. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. Warm. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>wet the bed</label><description>Sheets wet. Should just sleep in a diaper.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet the bed</label><description>Woke up wet. Not the worst feeling.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet da bed</label><description>Wet da bed. Cosy even wet.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. Warm. Soft.</description><baseMoodEffect>1</baseMoodEffect></li>
+        <li><label>warm</label><description>Wet warm. *cooing*</description><baseMoodEffect>1</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PeedOnMe (ZI) — replace all stages with 20 regression-aware stages.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThoughtDef[defName="PeedOnMe"]/stages</xpath>
+    <value>
+      <stages>
+        <!-- Default -->
+        <li><label>wet by bedfellow</label><description>Person I shared a bed with had an accident. Genuinely unpleasant.</description><baseMoodEffect>-6</baseMoodEffect></li>
+        <li><label>bedfellow's accident</label><description>My bedmate had an accident in our bed. Had to sleep in that.</description><baseMoodEffect>-4</baseMoodEffect></li>
+        <li><label>someone wet da bed</label><description>Da person in my bed made it all wet. Didn't wike dat.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>wet bed</label><description>Someone made da bed wet.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *doesn't really register*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Big_Boy -->
+        <li><label>this is unacceptable</label><description>My bedmate had an accident on me. Completely unacceptable.</description><baseMoodEffect>-9</baseMoodEffect></li>
+        <li><label>soaked by bedfellow</label><description>My bedmate had an accident on me. This is awful.</description><baseMoodEffect>-6</baseMoodEffect></li>
+        <li><label>someone wet da bed</label><description>Someone wet da bed while I was in it. Weally didn't wike dat.</description><baseMoodEffect>-3</baseMoodEffect></li>
+        <li><label>wet bed</label><description>Someone made da bed wet. No wike.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Potty_Rebel -->
+        <li><label>bedfellow's accident</label><description>My bedmate had an accident. Comes with the territory.</description><baseMoodEffect>-2</baseMoodEffect></li>
+        <li><label>bedfellow's accident</label><description>Bedmate had an accident. Whatever.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>wet bed</label><description>Bedfewwow had an accidant. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet bed</label><description>Bed got wet. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+        <!-- Diaper_Lover -->
+        <li><label>bedfellow's accident</label><description>My bedmate had an accident. Really not a big deal.</description><baseMoodEffect>-1</baseMoodEffect></li>
+        <li><label>bedfellow's accident</label><description>Bed got wet overnight. Fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet bed</label><description>Bed got wet overnight. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. Dat's okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+        <li><label>wet</label><description>Wet. *doesn't notice*</description><baseMoodEffect>0</baseMoodEffect></li>
+      </stages>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Apparel_Onesie (ZI) — append 20 regression-aware stages (5–24).
+       Formula: 5 + traitIdx * 5 + regressionIdx
+       ZI's original stages 0–4 kept intact for non-regressed pawns.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThoughtDef[defName="Apparel_Onesie"]/stages</xpath>
+    <value>
+      <!-- Default -->
+      <li><label>onesie</label><description>Wearing a onesie. The comfort is real. The implications are not nothing.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>wearing a onesie</label><description>In a onesie now. Still getting used to that.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>onesie</label><description>Got my onesie on. A bit silly but comfy.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>onesie</label><description>Onesie on. Soft.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>onesie</label><description>Soft warm. *cooing*</description><baseMoodEffect>2</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>hated onesie</label><description>Wearing a onesie. Beneath my dignity in every way.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>hate this onesie</label><description>In a onesie like a little kid. I hate this so much.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>don't want dis</label><description>Don't want to wear dis onesie. But I can't seem to stop.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>don't want onesie</label><description>Don't want onesie. Somefing feels wrong.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>onesie</label><description>Soft. *peaceful*</description><baseMoodEffect>0</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>comfortable</label><description>Wearing a onesie. Comfortable. Anyone got a problem with that.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>onesie, fine</label><description>Wearing a onesie. Don't care what anyone thinks.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>onesie</label><description>Got my onesie on. Dat's fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>onesie</label><description>Onesie on. Warm.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>onesie</label><description>Soft. *cooing*</description><baseMoodEffect>2</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>love my onesie</label><description>Snapped in and soft. My onesie makes everything feel simpler.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>love my onesie</label><description>My onesie is so soft and comfortable. Really love it.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>wuv my onesie</label><description>My onesie is weally weally nice.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>wuv onesie</label><description>Onesie so soft. Wuv it.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>onesie</label><description>Soft warm. Wuv. *cooing*</description><baseMoodEffect>3</baseMoodEffect></li>
+    </value>
+  </Operation>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       CribBed_Preferred (ZI) — append 20 regression-aware stages (3–22).
+       Formula: 3 + traitIdx * 5 + regressionIdx
+       ZI's original stages 0–2 kept intact for non-regressed pawns.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThoughtDef[defName="CribBed_Preferred"]/stages</xpath>
+    <value>
+      <!-- Default -->
+      <li><label>slept in a crib</label><description>Rails made it feel like a cage. Cramped and wrong.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>slept in a crib</label><description>Slept in a crib. Felt small and wrong.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>slept in crib</label><description>Slept in my cwib. Was okay.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>slept in crib</label><description>Cwib was warm. Slept good.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>crib</label><description>Safe warm. *content*</description><baseMoodEffect>4</baseMoodEffect></li>
+      <!-- Big_Boy -->
+      <li><label>caged like a baby</label><description>Crib confined me like an infant. Will not accept this.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>slept in a crib</label><description>Slept in a crib like a little child. Know what that means and hate it.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>slept in crib</label><description>Da cwib felt wrong. Da bit dat knows dat is still dere.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>slept in crib</label><description>Cwib felt safe. Da part dat hated dat is weally quiet now.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>crib</label><description>Safe warm. *peaceful*</description><baseMoodEffect>2</baseMoodEffect></li>
+      <!-- Potty_Rebel -->
+      <li><label>slept in a crib</label><description>Slept in a crib. Own it.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>slept in a crib</label><description>Crib was comfortable. Not pretending otherwise.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>liked da cwib</label><description>Da cwib was weally good. Da rails felt safe.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>nice cwib</label><description>Cwib was warm. Liked it.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>crib</label><description>Safe warm. *content*</description><baseMoodEffect>3</baseMoodEffect></li>
+      <!-- Diaper_Lover -->
+      <li><label>loved the crib</label><description>Crib felt safe and snug and exactly right. Would choose it again.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>loved the crib</label><description>My crib is just the right size right now. Slept wonderfully.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>wuv my cwib</label><description>My cwib fits me perfecly. Wuv sweeping in it.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>wuv cwib</label><description>Cwib so warm so safe. Wuv.</description><baseMoodEffect>4</baseMoodEffect></li>
+      <li><label>crib</label><description>Safe warm. Wuv. *cooing*</description><baseMoodEffect>5</baseMoodEffect></li>
+    </value>
+  </Operation>
+
+</Patch>

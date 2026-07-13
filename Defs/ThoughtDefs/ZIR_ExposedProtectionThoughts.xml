@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — SITUATIONAL: Protective garment visible (not covered by bottom clothing)
+       20 stages: 4 trait profiles × 5 regression stages
+       Formula: traitIdx * 5 + regressionIdx
+         traitIdx:     Default=0  BigBoy=1  PottyRebel=2  DiaperLover=3
+         regressionIdx: Adult=0  PreTeen=1  YoungChild=2  Toddler=3  Infant=4
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_ExposedProtection</defName>
+    <workerClass>ZealousInnocenceRegression.ThoughtWorker_ZIR_ExposedProtection</workerClass>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+
+      <!-- ── Default ── -->
+      <li><label>diaper showing</label><description>My diaper is visible. Aware of every glance.</description><baseMoodEffect>-4</baseMoodEffect></li>
+      <li><label>protection showing</label><description>My protection is showing and everyone can see it. Getting harder to care properly.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>diapew showing</label><description>My diapew is showing. Can't wemember why dat used to bother me so much.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>padded</label><description>Diapew showing. Dat's fine.</description><baseMoodEffect>0</baseMoodEffect></li>
+      <li><label>padded</label><description>Soft. Safe. *content*</description><baseMoodEffect>1</baseMoodEffect></li>
+
+      <!-- ── Big_Boy ── -->
+      <li><label>exposed</label><description>Everyone can see my diaper. Every single person. Cannot stand this.</description><baseMoodEffect>-8</baseMoodEffect></li>
+      <li><label>protection showing</label><description>My protection is visible to everyone and I cannot care about it properly anymore.</description><baseMoodEffect>-6</baseMoodEffect></li>
+      <li><label>should cover dis</label><description>My diapew is showin. Da bit dat knows dat is still twying.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>padded</label><description>Diapew showing. Somefing about dat feels wrong.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>padded</label><description>Soft. *content*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+      <!-- ── Potty_Rebel ── -->
+      <li><label>on display</label><description>Diaper visible. Not apologising for it. Let them look.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>showing it</label><description>Protection visible. Something about that feels like a victory.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>padded and free</label><description>My diapew is showing. Good. Better dan good.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>Protected. Showing. Good.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>Safe. Padded. *cooing*</description><baseMoodEffect>2</baseMoodEffect></li>
+
+      <!-- ── Diaper_Lover ── -->
+      <li><label>exposed</label><description>My diaper is visible. Part thrill, part discomfort. Cannot fully separate them.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>protection showing</label><description>They can see my protection. Something about that pulls at me.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>diapew showing</label><description>My diapew is visible. Dat feels wight somehow.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>padded</label><description>Padded. Comfy. Good.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>soft and safe</label><description>Soft warm. Safe. *cooing*</description><baseMoodEffect>3</baseMoodEffect></li>
+
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SELF — SITUATIONAL: Dirty protective garment visible
+       (used/spent/trashed, not covered by bottom clothing)
+       20 stages: 4 trait profiles × 5 regression stages
+       Formula: traitIdx * 5 + regressionIdx
+       Fires instead of ZIR_ExposedProtection when diaper is not clean.
+       ══════════════════════════════════════════════════════════════════ -->
+  <ThoughtDef>
+    <defName>ZIR_ExposedDirtyProtection</defName>
+    <workerClass>ZealousInnocenceRegression.ThoughtWorker_ZIR_ExposedDirtyProtection</workerClass>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+
+      <!-- ── Default ── -->
+      <li><label>soiled diaper showing</label><description>My diaper is dirty and everyone can see it. I want to disappear.</description><baseMoodEffect>-7</baseMoodEffect></li>
+      <li><label>dirty diaper showing</label><description>My diaper is used and it's showing. Everyone around me knows.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>dirty diapew showing</label><description>My diapew is dirty and it's showing. Don't wike dis at all.</description><baseMoodEffect>-3</baseMoodEffect></li>
+      <li><label>dirty diapew out</label><description>Dirty diapew is showing. Dat's bad.</description><baseMoodEffect>-1</baseMoodEffect></li>
+      <li><label>heavy and showing</label><description>Heavy and showing. *squirming*</description><baseMoodEffect>1</baseMoodEffect></li>
+
+      <!-- ── Big_Boy ── -->
+      <li><label>complete humiliation</label><description>My soiled diaper is in plain sight of everyone here. There are no words for this.</description><baseMoodEffect>-12</baseMoodEffect></li>
+      <li><label>worst possible</label><description>My used diaper is visible to everyone. Cannot believe this is happening.</description><baseMoodEffect>-9</baseMoodEffect></li>
+      <li><label>dirty diapew showing</label><description>My dirty diapew is showing. Da bit dat hates dis is still very loud.</description><baseMoodEffect>-5</baseMoodEffect></li>
+      <li><label>dirty diapew out</label><description>Dirty diapew showing. Dat's wrong. Very wrong.</description><baseMoodEffect>-2</baseMoodEffect></li>
+      <li><label>heavy and showing</label><description>Heavy. Showing. *fussing*</description><baseMoodEffect>0</baseMoodEffect></li>
+
+      <!-- ── Potty_Rebel ── -->
+      <li><label>dirty and visible</label><description>Soiled diaper on full display. They can deal with it.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>used and showing</label><description>Used diaper visible. That's even better than clean.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>dirty diapew out</label><description>Dirty diapew showing. Good.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>dirty diapew</label><description>Dirty diapew out. Fine.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>heavy and showing</label><description>Heavy and showing. *content*</description><baseMoodEffect>2</baseMoodEffect></li>
+
+      <!-- ── Diaper_Lover ── -->
+      <li><label>used and exposed</label><description>My used diaper is visible. The shame and the thrill of it are impossible to separate.</description><baseMoodEffect>1</baseMoodEffect></li>
+      <li><label>used and showing</label><description>They can see my used diaper. Something about that pulls very hard.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>warm diapew showing</label><description>My warm diapew is showing. Dat feels wight somehow.</description><baseMoodEffect>2</baseMoodEffect></li>
+      <li><label>warm and showing</label><description>Warm diapew out. Good.</description><baseMoodEffect>3</baseMoodEffect></li>
+      <li><label>warm and showing</label><description>Warm. Heavy. Showing. *content*</description><baseMoodEffect>3</baseMoodEffect></li>
+
+    </stages>
+  </ThoughtDef>
+
+</Defs>

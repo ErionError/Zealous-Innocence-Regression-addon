@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Requires Biotech (Childcare work type lives there). -->
+  <WorkGiverDef MayRequire="ludeon.rimworld.biotech">
+    <defName>ZIR_PottyTraining</defName>
+    <label>potty training</label>
+    <giverClass>ZealousInnocenceRegression.WorkGiver_PottyTraining</giverClass>
+    <workType>Childcare</workType>
+    <verb>train</verb>
+    <gerund>potty training</gerund>
+    <priorityInType>500</priorityInType>
+    <scanThings>true</scanThings>
+    <directOrderable>true</directOrderable>
+    <requiredCapacities>
+      <li>Moving</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

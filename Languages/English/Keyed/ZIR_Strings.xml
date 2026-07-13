@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Recovery moment letter -->
+  <ZIR_RecoveryMoment_Label>{0} is emerging</ZIR_RecoveryMoment_Label>
+  <ZIR_RecoveryMoment_Text>{0} has been working hard to rediscover themselves. Something is returning — a skill, a memory, a piece of who they were. They are emerging from {1}.</ZIR_RecoveryMoment_Text>
+
+  <!-- Recovery dialog -->
+  <ZIR_RecoveryDialog_Title>A moment of clarity — {0}</ZIR_RecoveryDialog_Title>
+  <ZIR_RecoveryDialog_Desc>{0} is clawing their way back. Choose what returns to them.</ZIR_RecoveryDialog_Desc>
+  <ZIR_RecoveryDialog_PassionHeader>Rediscover a passion:</ZIR_RecoveryDialog_PassionHeader>
+  <ZIR_RecoveryDialog_TraitHeader>Reclaim a part of themselves:</ZIR_RecoveryDialog_TraitHeader>
+  <ZIR_RecoveryDialog_NoTrait>Nothing yet — it's enough to remember this much</ZIR_RecoveryDialog_NoTrait>
+  <ZIR_RecoveryDialog_PickPassion>Choose a passion to restore first</ZIR_RecoveryDialog_PickPassion>
+  <ZIR_RecoveryDialog_Open>Make choices</ZIR_RecoveryDialog_Open>
+</LanguageData>

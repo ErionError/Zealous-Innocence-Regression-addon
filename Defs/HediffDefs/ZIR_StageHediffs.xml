@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       ZIR Stage Hediffs — one active at a time, swapped on stage crossing.
+       Applied by RegressionStageEffects.ApplyRegressionHediff.
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- ── Pre-Teen ──────────────────────────────────────────────────── -->
+  <HediffDef>
+    <defName>ZIR_Stage_PreTeen</defName>
+    <label>regressed (pre-teen)</label>
+    <description>The mind has partially reverted. Adult composure is fraying at the edges — something feels wrong, but the pawn can still function.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <makesSickThought>false</makesSickThought>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.95</MoveSpeed>
+          <WorkSpeedGlobal>0.90</WorkSpeedGlobal>
+          <SocialImpact>0.85</SocialImpact>
+          <TradePriceImprovement>0.90</TradePriceImprovement>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.3</CertaintyLossFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.97</setMax>
+          </li>
+        </capMods>
+        <restFallFactor>1.15</restFallFactor>
+        <hungerRateFactor>1.10</hungerRateFactor>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>BladderInfection</hediff>
+            <mtbDays>90</mtbDays>
+            <partsToAffect>
+              <li>Bladder</li>
+            </partsToAffect>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ── Young Child ───────────────────────────────────────────────── -->
+  <HediffDef>
+    <defName>ZIR_Stage_YoungChild</defName>
+    <label>regressed (young child)</label>
+    <description>The regression has deepened. Higher cognitive functions are visibly impaired — research, art, and nuanced social skill have slipped beyond reach.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <makesSickThought>false</makesSickThought>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.90</MoveSpeed>
+          <WorkSpeedGlobal>0.75</WorkSpeedGlobal>
+          <SocialImpact>0.70</SocialImpact>
+          <TradePriceImprovement>0.75</TradePriceImprovement>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.8</CertaintyLossFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.90</setMax>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.15</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.20</offset>
+          </li>
+        </capMods>
+        <restFallFactor>1.35</restFallFactor>
+        <hungerRateFactor>1.25</hungerRateFactor>
+        <forgetMemoryThoughtMtbDays>10</forgetMemoryThoughtMtbDays>
+        <disabledWorkTags>Intellectual, Artistic</disabledWorkTags>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Flu</hediff>
+            <mtbDays>120</mtbDays>
+            <partsToAffect>
+              <li>Torso</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_Random">
+            <hediff>BladderInfection</hediff>
+            <mtbDays>60</mtbDays>
+            <partsToAffect>
+              <li>Bladder</li>
+            </partsToAffect>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ── Toddler ───────────────────────────────────────────────────── -->
+  <HediffDef>
+    <defName>ZIR_Stage_Toddler</defName>
+    <label>regressed (toddler)</label>
+    <description>The pawn has regressed to a toddler-like state. Motor control, speech, and social comprehension are severely diminished. They can barely look after themselves.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <makesSickThought>false</makesSickThought>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.75</MoveSpeed>
+          <WorkSpeedGlobal>0.50</WorkSpeedGlobal>
+          <SocialImpact>0.40</SocialImpact>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.5</CertaintyLossFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.82</setMax>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.35</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.35</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.20</offset>
+          </li>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.25</offset>
+          </li>
+        </capMods>
+        <restFallFactor>1.65</restFallFactor>
+        <hungerRateFactor>1.55</hungerRateFactor>
+        <vomitMtbDays>3.0</vomitMtbDays>
+        <forgetMemoryThoughtMtbDays>4</forgetMemoryThoughtMtbDays>
+        <disabledWorkTags>Intellectual, Artistic, Social, Caring, Animals, Crafting</disabledWorkTags>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Flu</hediff>
+            <mtbDays>70</mtbDays>
+            <partsToAffect>
+              <li>Torso</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_Random">
+            <hediff>SleepingSickness</hediff>
+            <mtbDays>90</mtbDays>
+            <partsToAffect>
+              <li>Torso</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_Random">
+            <hediff>BladderInfection</hediff>
+            <mtbDays>45</mtbDays>
+            <partsToAffect>
+              <li>Bladder</li>
+            </partsToAffect>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ── Infant ─────────────────────────────────────────────────────── -->
+  <HediffDef>
+    <defName>ZIR_Stage_Infant</defName>
+    <label>regressed (infant)</label>
+    <description>Complete regression. The pawn is functionally an infant — immobile, pre-verbal, wholly dependent on others for survival. Whatever person they were is unreachable for now.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <makesSickThought>false</makesSickThought>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.60</MoveSpeed>
+          <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+          <SocialImpact>0.10</SocialImpact>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">3.5</CertaintyLossFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.65</setMax>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <setMax>0.10</setMax>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <setMax>0.15</setMax>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0.20</setMax>
+          </li>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.50</offset>
+          </li>
+        </capMods>
+        <restFallFactor>2.10</restFallFactor>
+        <hungerRateFactor>1.90</hungerRateFactor>
+        <vomitMtbDays>1.2</vomitMtbDays>
+        <forgetMemoryThoughtMtbDays>1</forgetMemoryThoughtMtbDays>
+        <disabledWorkTags>Intellectual, Artistic, Social, Caring, Animals, Crafting, Cooking</disabledWorkTags>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Flu</hediff>
+            <mtbDays>35</mtbDays>
+            <partsToAffect>
+              <li>Torso</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_Random">
+            <hediff>SleepingSickness</hediff>
+            <mtbDays>45</mtbDays>
+            <partsToAffect>
+              <li>Torso</li>
+            </partsToAffect>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>
