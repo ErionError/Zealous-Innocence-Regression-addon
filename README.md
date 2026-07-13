@@ -1,7 +1,5 @@
 # Zealous Innocence: Regression
 
-> *A horror-flavoured addon for Zealous Innocence — psychological unravelling, bodily dependency, and the slow loss of self.*
-
 **RimWorld 1.6 · Requires Zealous Innocence · Dubs Bad Hygiene · Biotech · Harmony**
 
 ---
