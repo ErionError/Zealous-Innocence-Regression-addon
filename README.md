@@ -14,7 +14,7 @@
 
 | Mod | Where to get it |
 |-----|----------------|
-| [Zealous Innocence](https://steamcommunity.com/sharedfiles/filedetails/?id=XXXXXXX) | Steam Workshop |
+| [Zealous Innocence](https://steamcommunity.com/sharedfiles/filedetails/?id=2857297111) | Steam Workshop |
 | [Dubs Bad Hygiene](https://steamcommunity.com/sharedfiles/filedetails/?id=836318027) | Steam Workshop |
 | Biotech DLC | Steam |
 | [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) | Steam Workshop |
