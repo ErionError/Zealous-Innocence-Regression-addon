@@ -194,4 +194,4 @@ Biotech's Need_Learning is frozen by ZI for adult pawns. This mod un-freezes it 
 
 ## License
 
-Standart MIT License
+Standard MIT License
