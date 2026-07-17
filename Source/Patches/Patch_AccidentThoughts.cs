@@ -40,32 +40,35 @@ namespace ZealousInnocenceRegression.Patches
             switch (defName)
             {
                 case "PantsPeed":
+                case "WetBed":
+                case "DiaperPeed":
+                case "DiaperPeedBed":
+                case "PeedOnMe":
+                    // Update any already-stored memories of this def to the current stage.
+                    // Vanilla's TryMergeWithExistingMemory may call Renew() on the oldest
+                    // existing entry instead of adding newThought, discarding our
+                    // SetForcedStage call on newThought. Pre-patching existing entries
+                    // ensures Renew() always lands on the correct stage index.
+                    foreach (var mem in __instance.Memories)
+                    {
+                        if (mem.def?.defName == defName)
+                            mem.SetForcedStage(stage);
+                    }
                     newThought.SetForcedStage(stage);
+                    if (defName == "PeedOnMe")
+                        RegressionStageEffects.ApplyArealRegression(pawn, -0.05f);
                     break;
 
                 case "SoiledSelf":
                     // Suppress if ZI's PantsPeed already fired for the same accident.
                     if (__instance.Memories.Any(t => t.def?.defName == "PantsPeed"))
                         return false;
+                    foreach (var mem in __instance.Memories)
+                    {
+                        if (mem.def?.defName == "SoiledSelf")
+                            mem.SetForcedStage(stage);
+                    }
                     newThought.SetForcedStage(stage);
-                    break;
-
-                case "WetBed":
-                    newThought.SetForcedStage(stage);
-                    break;
-
-                case "DiaperPeed":
-                    newThought.SetForcedStage(stage);
-                    break;
-
-                case "DiaperPeedBed":
-                    newThought.SetForcedStage(stage);
-                    break;
-
-                case "PeedOnMe":
-                    newThought.SetForcedStage(stage);
-                    // Bedwetting-on-bedmate is a mild areal regression trigger.
-                    RegressionStageEffects.ApplyArealRegression(pawn, -0.05f);
                     break;
             }
 

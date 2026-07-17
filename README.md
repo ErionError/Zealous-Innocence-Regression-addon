@@ -1,5 +1,7 @@
 # Zealous Innocence: Regression
 
+> *A horror-flavoured addon for Zealous Innocence — psychological unravelling, bodily dependency, and the slow loss of self.*
+
 **RimWorld 1.6 · Requires Zealous Innocence · Dubs Bad Hygiene · Biotech · Harmony**
 
 ---
@@ -14,7 +16,7 @@
 
 | Mod | Where to get it |
 |-----|----------------|
-| [Zealous Innocence](https://steamcommunity.com/sharedfiles/filedetails/?id=2857297111) | Steam Workshop |
+| [Zealous Innocence](https://steamcommunity.com/sharedfiles/filedetails/?id=XXXXXXX) | Steam Workshop |
 | [Dubs Bad Hygiene](https://steamcommunity.com/sharedfiles/filedetails/?id=836318027) | Steam Workshop |
 | Biotech DLC | Steam |
 | [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) | Steam Workshop |
@@ -194,4 +196,4 @@ Biotech's Need_Learning is frozen by ZI for adult pawns. This mod un-freezes it 
 
 ## License
 
-Standard MIT License
+Standart MIT License

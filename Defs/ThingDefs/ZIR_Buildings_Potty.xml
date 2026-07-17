@@ -11,7 +11,7 @@
     <graphicData>
       <texPath>Things/Building/ZIR_PottyChair</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(0,5,0.5)</drawSize>
+      <drawSize>(1,1)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>60</MaxHitPoints>
@@ -23,9 +23,9 @@
     <selectable>true</selectable>
     <altitudeLayer>Building</altitudeLayer>
     <size>(1,1)</size>
+    <rotatable>true</rotatable>
     <building>
       <isEdifice>false</isEdifice>
-	  <rotatable>true</rotatable>
     </building>
     <passability>PassThroughOnly</passability>
     <pathCost>14</pathCost>

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "B3K0OBrP9a8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\NazarDoe\\AppData\\Roaming\\Modmixer\\workspace\\Mods\\10e9f0c72db5\\Source\\ModSource.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NazarDoe\\.nuget\\packages\\lib.harmony\\2.4.1\\lib.harmony.2.4.1.nupkg.sha512",
+    "C:\\Users\\NazarDoe\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\NazarDoe\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

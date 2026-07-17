@@ -1,0 +1,9 @@
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Assemblies\ModSource.dll
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Assemblies\ModSource.pdb
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.csproj.AssemblyReference.cache
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.AssemblyInfoInputs.cache
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.AssemblyInfo.cs
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.csproj.CoreCompileInputs.cache
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.dll
+C:\Users\NazarDoe\AppData\Roaming\Modmixer\workspace\Mods\10e9f0c72db5\Source\obj\Debug\ModSource.pdb
